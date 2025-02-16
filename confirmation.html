@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement Réussi</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .thank-you {
+            font-weight: bold;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="https://destockagealimentaireprixbas.com/wp-content/uploads/2024/04/Destockage-Alimentaire-2.gif" alt="Logo Destockage Alimentaire" width="200">
+    </div>
+    <h1>Paiement Réussi !</h1>
+    <p>Merci, {{ nom }} {{ prenom }}, pour votre paiement de {{ montant }} €.</p>
+    <p class="thank-you">L'équipe de DestockageAlimentairePrixBas vous remercie pour votre confiance.</p>
+</body>
+</html>

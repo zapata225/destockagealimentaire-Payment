@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation du Paiement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            margin: 50px auto;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 22px;
+            color: #333;
+        }
+        .icon {
+            font-size: 50px;
+            color: #28a745;
+            margin: 20px 0;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        .loading {
+            margin-top: 20px;
+            display: none;
+            font-size: 18px;
+            color: #333;
+        }
+        .loading.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Veuillez valider votre paiement de <strong>{{ montant }} €</strong></h2>
+
+        <!-- Icône de paiement sécurisé -->
+        <div class="icon">
+            <i class="fas fa-lock"></i>
+        </div>
+
+        <!-- Choix entre notification mobile ou code -->
+        <div class="notification">
+            <h3>Choisissez une méthode de validation :</h3>
+            <p><strong>Option 1:</strong> Vous allez recevoir une notification sur votre mobile pour valider le paiement.</p>
+            <p><strong>Option 2:</strong> Si vous avez reçu un code par message, entrez-le ci-dessous :</p>
+
+            <form method="POST" onsubmit="showLoadingMessage()">
+                <div class="input-group">
+                    <input type="number" id="validation_code" name="validation_code" placeholder="Entrez votre code" min="0" max="999999" required>
+                </div>
+                <button type="submit" class="button">Valider le paiement</button>
+            </form>
+
+            <!-- Message de chargement -->
+            <div class="loading" id="loading">
+                <p>En attente de confirmation... <i class="fas fa-spinner fa-spin"></i></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLoadingMessage() {
+            document.getElementById("loading").classList.add("show");
+        }
+    </script>
+
+</body>
+</html>

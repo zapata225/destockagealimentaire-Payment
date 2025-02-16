@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            height: 100vh; /* Prendre toute la hauteur de l'écran */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centrer tout le contenu verticalement */
+            margin: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto; /* Centrer horizontalement */
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Style pour centrer le logo */
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px; /* Un peu d'espace sous le logo */
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            align-self: center; /* Centre le bouton horizontalement */
+            margin-top: auto; /* Pousse le bouton vers le bas */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Centrage du logo -->
+        <div class="logo">
+            <img src="https://destockagealimentaireprixbas.com/wp-content/uploads/2024/04/Destockage-Alimentaire-2.gif" alt="Logo" width="200">
+        </div>
+        <h1>Formulaire de Paiement</h1>
+        <form id="paiement-form" action="/" method="POST">
+            <!-- Champ de facturation -->
+            <input type="text" name="nom" placeholder="Nom" required>
+            <input type="text" name="prenom" placeholder="Prénom" required>
+            <input type="text" name="adresse_facturation" placeholder="Adresse de Facturation" required>
+
+            <!-- Nouveau champ pour l'adresse de livraison -->
+            <input type="text" name="adresse_livraison" placeholder="Adresse de Livraison" required>
+
+            <!-- Nouveau champ pour le numéro de téléphone -->
+            <input type="tel" name="telephone" placeholder="Numéro de Téléphone" required>
+
+            <!-- Nouveau champ pour l'adresse e-mail -->
+            <input type="email" name="email" placeholder="Adresse E-mail" required>
+
+            <!-- Montant du paiement -->
+            <input type="number" name="montant" placeholder="Montant (€)" required>
+
+            <!-- Bouton en bas -->
+            <button type="submit">Suivant</button>
+        </form>
+    </div>
+</body>
+</html>
